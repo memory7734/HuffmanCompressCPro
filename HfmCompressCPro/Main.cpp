@@ -7,10 +7,8 @@ int main()
 {
 	cout << "********Huffman文件压缩********" << endl;
 	cout << "请输入文件名：";
-//	char fileName[256];
-//	cin >> fileName;
-//	char fileName[] = "D://Setup.X64.zh-cn_O365ProPlusRetail_cc34882c-ba85-4909-9a4c-4c82d23c5cd9_TX_PR_b_48_.exe";
-	char fileName[] = "D://1.txt";
+	char fileName[256];
+	cin >> fileName;
 	Compress(fileName);
 
 	//显示256种字节的出现次数
