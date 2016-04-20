@@ -65,50 +65,6 @@ void TestHufTreeN(int root, HuffmanTree pHT)
 }
 void HuffmanCoding(HuffmanTree pHT, HuffmanCode pHC)
 {
-	////无栈非递归遍历Huffman树，求Hufffman编码
-	//char cd[256] = { '\0' };	//记录访问路径
-	//int cdlen = 0;				//记录当前路径长度
-	//for (int i = 1; i < 512; i++)
-	//{
-//		pHT[i].weight = 0;		//遍历Huffman树时用节点的状态标志
-//	}
-
-	//int p = 511;//根节点
-	//while (p != 0)
-	//{
-//		if (pHT[p].weight == 0)//向左
-		//{
-			//pHT[p].weight = 1;
-			//if (pHT[p].lchild != 0)
-			//{
-//				p = pHT[p].lchild;
-				//cd[cdlen++] = '0';
-			//}
-			//else if (pHT[p].rchild == 0)//登记叶子节点的字符的编码
-			//{
-				//pHC[p] = (char*)malloc((cdlen + 1)*sizeof(char));
-				//cd[cdlen] = '\0';
-//				strcpy(pHC[p], cd);//复制编码
-			//}
-		//}
-//		else if (pHT[p].weight == 1)//向右
-//		{
-//			pHT[p].weight = 2;
-//			if (pHT[p].rchild != 0)//右孩子为叶子节点
-//			{
-//				p = pHT[p].rchild;
-//				cd[cdlen++] = '1';
-//			}
-//		}
-//		else
-//		{
-//			//退回父节点，编码长度减1
-//			pHT[p].weight = 0;
-//			p = pHT[p].parent;
-//			--cdlen;
-//		}
-//	}
-//	return 0;
 	char* cd = (char*)malloc(256 * sizeof(char));
 	cd[255] = '\0';
 	for (int i = 1; i <= 256; ++i)
