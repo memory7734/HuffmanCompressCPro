@@ -2,18 +2,24 @@
 #include<iostream>
 using namespace std;
 int Select(HuffmanTree pHT, int nSize);
+//建立HuffmanTree
 void HuffmanTreeInit(HuffmanTree pHT, int w[])
 {
+	//初始化HuffmanTree
 	for (int i = 1; i < 512; i++)
 	{
 		if (i <= 256)
+		{
 			pHT[i].weight = *w++;
+			pHT[i].c = i-1;
+		}
 		else
 			pHT[i].weight = 2147483647;
 		pHT[i].lchild = 0;
 		pHT[i].rchild = 0;
 		pHT[i].parent = 0;
 	}
+	//将weight[]数组中的信息存入HuffmanTree
 	for (int i = 257; i < 512; i++)
 	{
 		int min = Select(pHT, i - 1);
@@ -25,9 +31,8 @@ void HuffmanTreeInit(HuffmanTree pHT, int w[])
 		pHT[i].rchild = min;
 		pHT[i].weight = pHT[min].weight + pHT[i].weight;
 	}
-	
 }
-
+//选择最小值
 int Select(HuffmanTree pHT, int nSize)
 {
 	int minValue = 2147483647;	//最小值
@@ -44,6 +49,7 @@ int Select(HuffmanTree pHT, int nSize)
 	}
 		return min;
 }
+//显示每个节点的信息
 void TestHufTree(HuffmanTree pHT)
 {
 	for (int i = 1; i < 512; ++i)
@@ -51,6 +57,7 @@ void TestHufTree(HuffmanTree pHT)
 		printf("pHT[%d]\t%d\t%d\t%d\t%d\n", i, pHT[i].weight, pHT[i].parent, pHT[i].lchild, pHT[i].rchild);
 	}
 }
+//遍历每个节点
 void TestHufTreeN(int root, HuffmanTree pHT)
 {
 	cout << pHT[root].weight << " ";
@@ -63,6 +70,7 @@ void TestHufTreeN(int root, HuffmanTree pHT)
 		TestHufTreeN(pHT[root].rchild, pHT);
 	}
 }
+//初始化HuffmanCode
 void HuffmanCoding(HuffmanTree pHT, HuffmanCode pHC)
 {
 	char* cd = (char*)malloc(256 * sizeof(char));
